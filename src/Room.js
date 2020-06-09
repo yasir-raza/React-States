@@ -5,13 +5,12 @@ import './Room.css';
 function Room() {
     let [isLit, setLit] = useState(false);
     let [age, setAge] = useState(20);
-    let [light, setLight] = useState(false);
     let [temp, setTemp] = useState(72);
     function updateLit(){
         setLit(!isLit)
     }
   return (
-    <div className="Main">
+    <div className={`room ${isLit? "lit": "dark"}`}>
         Thia Room is {isLit ? "Lit" : "Dark" }
         <br />
         Age = {age}
@@ -20,12 +19,9 @@ function Room() {
         <br />
         <button onClick={() => setAge(++age)}>Increase Age</button>
         <br />
-        light is {JSON.stringify(light)}
-        <br />
-        <button onClick={() => setLight(true)}>ON</button>
-        <button onClick={() => setLight(false)}>OFF</button>
+        <button onClick={() => setLit(true)}>ON</button>
+        <button onClick={() => setLit(false)}>OFF</button>
 
-        light is {JSON.stringify(light)}
         <br />
         Room Temperature : {temp}
         <br />
